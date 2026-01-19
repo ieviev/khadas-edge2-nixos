@@ -22,7 +22,8 @@
               sdImageAarch64
             ];
             sdImage = {
-              firmwareSize = 200; # MiB
+              # at least 500MiB otherwise kernel updates wont fit into /boot
+              firmwareSize = 500; # MiB
             };
             hardware.firmware = [
               (pkgs.runCommand "bcm43752-firmware" { }
